@@ -2,9 +2,9 @@
 
 This repo contains a small animation sample using [Svelte](https://svelte.dev/) (on top of [SvelteKit](https://kit.svelte.dev/)). All of the significant transitions/animations are built with built-in Svelte tools and run _smooth as hell_.
 
-<div style="text-align: center">
+<p align="center">
 	<img src="./docs/svelte-animations.gif" alt="Example of svelte animation using pokemon grid">
-</div>
+</p>
 
 ## MORE COMING SOON
 
