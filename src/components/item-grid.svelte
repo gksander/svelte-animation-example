@@ -13,7 +13,7 @@
 				class="p-6 bg-gray-100 rounded cursor-pointer aspect-square hover:shadow-lg transition-shadow duration-300"
 				animate:flip={{duration:d => 30 * Math.sqrt(d)}}
 				on:click={() => $activeItem = item}
-				out:fade
+				transition:fade
 			>
 				{#if $activeItem?.id !== item.id}
 					<img
