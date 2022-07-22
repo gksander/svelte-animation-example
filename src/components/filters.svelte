@@ -3,10 +3,10 @@
 	import { flip } from 'svelte/animate';
 	import { slide } from 'svelte/transition';
 	import {activeTags, inactiveTags} from "$utils/stores"
-
+	import {fadeSlide} from '$utils/fadeSlide'
 
 	const [send, receive] = crossfade({
-		duration: d => Math.sqrt(d * 300),
+		duration: 300,
 		fallback: slide
 	});
 </script>
@@ -15,7 +15,7 @@
 
 	<div class="text-gray-800 text-lg">Available Filters</div>
 	{#if $inactiveTags.length}
-		<div class="flex gap-1" transition:slide={{ duration: 200 }}>
+		<div class="flex gap-2" transition:fadeSlide={{ duration: 300 }}>
 			{#each $inactiveTags as tag (tag)}
 				<button
 					in:receive={{key: tag}}
@@ -32,7 +32,7 @@
 	{#if $activeTags.length}
 		<div
 			class="flex gap-2"
-			transition:slide={{duration: 300}}
+			transition:fadeSlide={{duration: 300}}
 		>
 			{#each $activeTags as tag (tag)}
 				<button
@@ -40,7 +40,7 @@
 					out:send={{key: tag}}
 					on:click={() => activeTags.removeTag(tag)}
 					animate:flip={{duration: 300}}
-					class="px-5 w-18 py-1 bg-white rounded-full text-xs"
+					class="px-5 w-24 py-1 bg-white rounded-full text-xs"
 				>{tag} ⤫</button>
 			{/each}
 			<button
